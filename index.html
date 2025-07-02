@@ -7,7 +7,135 @@
     <title>Forkify</title>
     <meta name="description" content="Free getting recipes">
     <link rel="icon" type="image/ico" href="Images/forkifyLogo.ico">
+
+    <link rel="stylesheet" href="Css\style.css">
+    <link rel="stylesheet" href="Css/all.min.css">
 </head>
 <body>
+<div class="container">
+    <header class="header">
+        <div class="logo">
+            <img src="Images/forkifyLogoWithTitle.png" alt="Forkify logo with title">
+        </div>
+        <div class="search">
+            <input type="text" class="text-input" placeholder="Search over 1,000,000 recipes...">
+            <button class="search-btn hover-scale-transform">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search
+            </button>
+        </div>
+        <div class="add hover-scale-transform">
+            <i class="fa-solid fa-pen-to-square"></i>
+            ADD RECIPE
+        </div>
+        <div class="bookmarks hover-scale-transform">
+            <i class="fa-solid fa-bookmark"></i>
+            BOOKMARKS
+        </div>
+    </header>
+    <div class="recipes">
+        <ul class="recipes-list">
+            <li class="recipe-item">
+                <figure class="recipe-image">
+                    <img src="Images/forkifyLogo.png" alt="recipe image">
+                </figure>
+                <div class="recipe-info">
+                    <h3 class="recipe-title">
+                        Double Crust Stuffed Pizza hamdy khaled mohammed ahmed hassan
+                    </h3>
+                    <p class="recipe-author"> Hamdy Khaled</p>
+                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>
+                </div>
+            </li>
+            <li class="recipe-item">
+                <figure class="recipe-image">
+                    <img src="Images/forkifyLogo.png" alt="recipe image">
+                </figure>
+                <div class="recipe-info">
+                    <h3 class="recipe-title">
+                        Double Crust Stuffed Pizza
+                    </h3>
+                    <p class="recipe-author"> Hamdy Khaled</p>
+                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>
+                </div>
+            </li>
+            <li class="recipe-item">
+                <figure class="recipe-image">
+                    <img src="Images/forkifyLogo.png" alt="recipe image">
+                </figure>
+                <div class="recipe-info">
+                    <h3 class="recipe-title">
+                        Double Crust Stuffed Pizza
+                    </h3>
+                    <p class="recipe-author"> Hamdy Khaled</p>
+                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>
+                </div>
+            </li>
+            <div class="page-controller">
+                <button class="previous hover-scale-transform">page <span class="page-number">1</span></button>
+                <button class="next hover-scale-transform">
+                    page <span class="page-number">100</span></button>
+            </div>
+        </ul>
+        <div class="recipe-details">
+            <figure class="recipe-preview">
+                <img src="Images/15365-leaves-plant-dark-4k.jpg" alt="recipe image">
+                <h2 class="title">
+                    Double Crust Stuffed play
+                </h2>
+            </figure>
+            <div class="recipe-info">
+                <div class="minutes"><i class="fa-solid fa-clock"></i> <span class="number-of-minutes">120</span>
+                    MINUTES
+                </div>
+                <div class="servings"><i class="fa-solid fa-user"></i> <span class="number-of-servings">4</span>
+                    SERVINGS
+                    <i class="fa-solid fa-minus servings-increase hover-scale-transform"></i>
+                    <i class="fa-solid fa-plus servings-decrease hover-scale-transform"></i>
+                </div>
+                <button class="bookmark-btn hover-scale-transform">
+                    <i class="fa-regular fa-bookmark"></i>
+                </button>
+            </div>
+            <div class="ingredients">
+                <h3>RECIPE INGREDIENTS</h3>
+                <ul>
+                    <li>1 1/2 tsps white sugar</li>
+                    <li>1 1/2 tsps active dry yeast</li>
+                    <li>1/2 tsp salt</li>
+                    <li>1 can crushed tomatoes</li>
+                    <li>1/2 tsp garlic powder</li>
+                    <li>1/2 tsp salt</li>
+                    <li>1/2 pound bulk italian sausage</li>
+                    <li>1 package sliced fresh mushrooms</li>
+                    <li>1 red bell pepper chopped</li>
+                    <li>1 cup warm water</li>
+                    <li>1 tbsp olive oil</li>
+                    <li>2 cups all-purpose flour</li>
+                    <li>1 tbsp packed brown sugar</li>
+                    <li>1 tsp olive oil</li>
+                    <li>3 cups shredded mozzarella cheese divided</li>
+                    <li>1 package sliced pepperoni</li>
+                    <li>1 green bell pepper chopped</li>
+                </ul>
+            </div>
+            <div class="how-to-cook-recipe">
+                <h3>
+                    How to cook it
+                </h3>
+                <p class="recipe-description">
+                    This recipe was carefully designed and tested by <span class="publisher-by">BBC Good Food</span>.
+                    Please check out
+                    directions at their
+                    website.
+                </p>
 
+                <button class="directions-btn hover-scale-transform">
+                    Directions
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
+</html>
