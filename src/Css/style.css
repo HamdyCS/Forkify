@@ -22,7 +22,7 @@
     --large-margin: 70px;
 
     /*    fonts*/
-    --small-font-size: 20px;
+    --small-font-size: 18px;
     --medium-font-size: 50px;
     --large-font-size: 70px;
 
@@ -51,7 +51,7 @@ body {
 }
 
 .container {
-    width: 85%;
+    width: 80%;
     height: 95%;
     background-color: var(--third-color);
     font-size: var(--small-font-size);
