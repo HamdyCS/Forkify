@@ -1,0 +1,22 @@
+{
+  "name": "forkify",
+  "version": "1.0.0",
+  "description": "search to recipes",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HamdyCS/Forkify.git"
+  },
+  "author": "Hamdy Khaled",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HamdyCS/Forkify/issues"
+  },
+  "homepage": "https://github.com/HamdyCS/Forkify#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  }
+}
