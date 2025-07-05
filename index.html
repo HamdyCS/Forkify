@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="src\Css\style.css">
     <link rel="stylesheet" href="src/Css/all.min.css">
 
-    <script defer src="src/js/controller.js"></script>
+    <script defer type="module" src="src/js/controller.js"></script>
 </head>
 <body>
 <div class="container">
@@ -37,106 +37,126 @@
     </header>
     <div class="recipes">
         <ul class="recipes-list">
-            <li class="recipe-item">
-                <figure class="recipe-image">
-                    <img src="src/Images/forkifyLogo.png" alt="recipe image">
-                </figure>
-                <div class="recipe-info">
-                    <h3 class="recipe-title">
-                        Double Crust Stuffed Pizza hamdy khaled mohammed ahmed hassan
-                    </h3>
-                    <p class="recipe-author"> Hamdy Khaled</p>
-                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>
-                </div>
-            </li>
-            <li class="recipe-item">
-                <figure class="recipe-image">
-                    <img src="src/Images/forkifyLogo.png" alt="recipe image">
-                </figure>
-                <div class="recipe-info">
-                    <h3 class="recipe-title">
-                        Double Crust Stuffed Pizza
-                    </h3>
-                    <p class="recipe-author"> Hamdy Khaled</p>
-                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>
-                </div>
-            </li>
-            <li class="recipe-item">
-                <figure class="recipe-image">
-                    <img src="src/Images/forkifyLogo.png" alt="recipe image">
-                </figure>
-                <div class="recipe-info">
-                    <h3 class="recipe-title">
-                        Double Crust Stuffed Pizza
-                    </h3>
-                    <p class="recipe-author"> Hamdy Khaled</p>
-                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>
-                </div>
-            </li>
-            <div class="page-controller">
-                <button class="previous hover-scale-transform">page <span class="page-number">1</span>
-                </button>
-                <button class="next hover-scale-transform">
-                    page <span class="page-number">100</span></button>
-            </div>
+            <div class="loading-gif hidden"></div>
+            <!--            <li class="recipe-item">-->
+            <!--                <figure class="recipe-image">-->
+            <!--                    <img src="src/Images/forkifyLogo.png" alt="recipe image">-->
+            <!--                </figure>-->
+            <!--                <div class="recipe-info">-->
+            <!--                    <h3 class="recipe-title">-->
+            <!--                        Double Crust Stuffed Pizza hamdy khaled mohammed ahmed hassan-->
+            <!--                    </h3>-->
+            <!--                    <p class="recipe-author"> Hamdy Khaled</p>-->
+            <!--                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>-->
+            <!--                </div>-->
+            <!--            </li>-->
+            <!--            <li class="recipe-item">-->
+            <!--                <figure class="recipe-image">-->
+            <!--                    <img src="src/Images/forkifyLogo.png" alt="recipe image">-->
+            <!--                </figure>-->
+            <!--                <div class="recipe-info">-->
+            <!--                    <h3 class="recipe-title">-->
+            <!--                        Double Crust Stuffed Pizza-->
+            <!--                    </h3>-->
+            <!--                    <p class="recipe-author"> Hamdy Khaled</p>-->
+            <!--                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>-->
+            <!--                </div>-->
+            <!--            </li>-->
+            <!--            <li class="recipe-item">-->
+            <!--                <figure class="recipe-image">-->
+            <!--                    <img src="src/Images/forkifyLogo.png" alt="recipe image">-->
+            <!--                </figure>-->
+            <!--                <div class="recipe-info">-->
+            <!--                    <h3 class="recipe-title">-->
+            <!--                        Double Crust Stuffed Pizza-->
+            <!--                    </h3>-->
+            <!--                    <p class="recipe-author"> Hamdy Khaled</p>-->
+            <!--                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>-->
+            <!--                </div>-->
+            <!--            </li>-->
+            <!--            <div class="page-controller">-->
+            <!--                <button class="previous hover-scale-transform">page <span class="page-number">1</span>-->
+            <!--                </button>-->
+            <!--                <button class="next hover-scale-transform">-->
+            <!--                    page <span class="page-number">100</span></button>-->
+            <!--            </div>-->
         </ul>
-        <div class="recipe-details">
-            <figure class="recipe-preview">
-                <img src="src/Images/15365-leaves-plant-dark-4k.jpg" alt="recipe image">
-                <h2 class="title">
-                    Double Crust Stuffed play
-                </h2>
-            </figure>
-            <div class="recipe-info">
-                <div class="minutes"><i class="fa-solid fa-clock"></i> <span class="number-of-minutes">120</span>
-                    MINUTES
-                </div>
-                <div class="servings"><i class="fa-solid fa-user"></i> <span class="number-of-servings">4</span>
-                    SERVINGS
-                    <i class="fa-solid fa-minus servings-increase hover-scale-transform"></i>
-                    <i class="fa-solid fa-plus servings-decrease hover-scale-transform"></i>
-                </div>
-                <button class="bookmark-btn hover-scale-transform">
-                    <i class="fa-regular fa-bookmark"></i>
-                </button>
-            </div>
-            <div class="ingredients">
-                <h3>RECIPE INGREDIENTS</h3>
-                <ul>
-                    <li>1 1/2 tsps white sugar</li>
-                    <li>1 1/2 tsps active dry yeast</li>
-                    <li>1/2 tsp salt</li>
-                    <li>1 can crushed tomatoes</li>
-                    <li>1/2 tsp garlic powder</li>
-                    <li>1/2 tsp salt</li>
-                    <li>1/2 pound bulk italian sausage</li>
-                    <li>1 package sliced fresh mushrooms</li>
-                    <li>1 red bell pepper chopped</li>
-                    <li>1 cup warm water</li>
-                    <li>1 tbsp olive oil</li>
-                    <li>2 cups all-purpose flour</li>
-                    <li>1 tbsp packed brown sugar</li>
-                    <li>1 tsp olive oil</li>
-                    <li>3 cups shredded mozzarella cheese divided</li>
-                    <li>1 package sliced pepperoni</li>
-                    <li>1 green bell pepper chopped</li>
-                </ul>
-            </div>
-            <div class="how-to-cook-recipe">
-                <h3>
-                    How to cook it
-                </h3>
-                <p class="recipe-description">
-                    This recipe was carefully designed and tested by <span class="publisher-by">BBC Good Food</span>.
-                    Please check out
-                    directions at their
-                    website.
+        <div class="recipe">
+            <div class="loading-gif hidden"></div>
+            <div class="start-message">
+                <i class="fa-regular fa-face-smile"></i>
+                <p>
+                    Start by searching for a recipe or an ingredient. Have fun!
                 </p>
-
-                <button class="directions-btn hover-scale-transform">
-                    Directions
-                </button>
             </div>
+
+            <div class="recipe-details">-->
+                <!--                <figure class="recipe-preview">-->
+                <!--                    <img src="src/Images/15365-leaves-plant-dark-4k.jpg" alt="recipe image">-->
+                <!--                    <h2 class="title">-->
+                <!--                        Double Crust Stuffed play-->
+                <!--                    </h2>-->
+                <!--                </figure>-->
+                <!--                <div class="recipe-info">-->
+                <!--                    <div class="minutes"><i class="fa-solid fa-clock"></i> <span class="number-of-minutes">120</span>-->
+                <!--                        MINUTES-->
+                <!--                    </div>-->
+                <!--                    <div class="servings"><i class="fa-solid fa-user"></i> <span class="number-of-servings">4</span>-->
+                <!--                        SERVINGS-->
+                <!--                        <i class="fa-solid fa-minus servings-increase hover-scale-transform"></i>-->
+                <!--                        <i class="fa-solid fa-plus servings-decrease hover-scale-transform"></i>-->
+                <!--                    </div>-->
+                <!--                    <button class="bookmark-btn hover-scale-transform">-->
+                <!--                        <i class="fa-regular fa-bookmark"></i>-->
+                <!--                    </button>-->
+                <!--                </div>-->
+                <!--                <div class="ingredients">-->
+                <!--                    <h3>RECIPE INGREDIENTS</h3>-->
+                <!--                    <ul>-->
+                <!--                        <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span-->
+                <!--                                class="description">-->
+                <!--                                        white sugar-->
+                <!--                                    </span>-->
+                <!--                        </li>-->
+                <!--                        <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span-->
+                <!--                                class="description">-->
+                <!--                                        white sugar-->
+                <!--                                    </span>-->
+                <!--                        </li>-->
+                <!--                        <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span-->
+                <!--                                class="description">-->
+                <!--                                        white sugar-->
+                <!--                                    </span>-->
+                <!--                        </li>-->
+                <!--                        <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span-->
+                <!--                                class="description">-->
+                <!--                                        white sugar-->
+                <!--                                    </span>-->
+                <!--                        </li>-->
+                <!--                        <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span-->
+                <!--                                class="description">-->
+                <!--                                        white sugar-->
+                <!--                                    </span>-->
+                <!--                        </li>-->
+                <!--                    </ul>-->
+                <!--                </div>-->
+                <!--                <div class="how-to-cook-recipe">-->
+                <!--                    <h3>-->
+                <!--                        How to cook it-->
+                <!--                    </h3>-->
+                <!--                    <p class="recipe-description">-->
+                <!--                        This recipe was carefully designed and tested by <span class="publisher-by">BBC Good Food</span>.-->
+                <!--                        Please check out-->
+                <!--                        directions at their-->
+                <!--                        website.-->
+                <!--                    </p>-->
+
+                <!--                    <button class="directions-btn hover-scale-transform">-->
+                <!--                        Directions-->
+                <!--                    </button>-->
+                <!--                </div>-->
+            </div>
+
         </div>
     </div>
 </div>
