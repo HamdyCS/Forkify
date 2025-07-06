@@ -19,13 +19,13 @@
         <div class="logo">
             <img src="src/Images/forkifyLogoWithTitle.png" alt="Forkify logo with title">
         </div>
-        <div class="search">
+        <form class="search">
             <input type="text" class="text-input" placeholder="Search over 1,000,000 recipes...">
-            <button class="search-btn hover-scale-transform">
+            <button type="submit" class="search-btn hover-scale-transform">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 Search
             </button>
-        </div>
+        </form>
         <div class="add hover-scale-transform">
             <i class="fa-solid fa-pen-to-square"></i>
             ADD RECIPE
@@ -36,51 +36,53 @@
         </div>
     </header>
     <div class="recipes">
-        <ul class="recipes-list">
+        <div class="recipe-list-container">
             <div class="loading-gif hidden"></div>
-            <!--            <li class="recipe-item">-->
-            <!--                <figure class="recipe-image">-->
-            <!--                    <img src="src/Images/forkifyLogo.png" alt="recipe image">-->
-            <!--                </figure>-->
-            <!--                <div class="recipe-info">-->
-            <!--                    <h3 class="recipe-title">-->
-            <!--                        Double Crust Stuffed Pizza hamdy khaled mohammed ahmed hassan-->
-            <!--                    </h3>-->
-            <!--                    <p class="recipe-author"> Hamdy Khaled</p>-->
-            <!--                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>-->
-            <!--                </div>-->
-            <!--            </li>-->
-            <!--            <li class="recipe-item">-->
-            <!--                <figure class="recipe-image">-->
-            <!--                    <img src="src/Images/forkifyLogo.png" alt="recipe image">-->
-            <!--                </figure>-->
-            <!--                <div class="recipe-info">-->
-            <!--                    <h3 class="recipe-title">-->
-            <!--                        Double Crust Stuffed Pizza-->
-            <!--                    </h3>-->
-            <!--                    <p class="recipe-author"> Hamdy Khaled</p>-->
-            <!--                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>-->
-            <!--                </div>-->
-            <!--            </li>-->
-            <!--            <li class="recipe-item">-->
-            <!--                <figure class="recipe-image">-->
-            <!--                    <img src="src/Images/forkifyLogo.png" alt="recipe image">-->
-            <!--                </figure>-->
-            <!--                <div class="recipe-info">-->
-            <!--                    <h3 class="recipe-title">-->
-            <!--                        Double Crust Stuffed Pizza-->
-            <!--                    </h3>-->
-            <!--                    <p class="recipe-author"> Hamdy Khaled</p>-->
-            <!--                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>-->
-            <!--                </div>-->
-            <!--            </li>-->
-            <!--            <div class="page-controller">-->
-            <!--                <button class="previous hover-scale-transform">page <span class="page-number">1</span>-->
-            <!--                </button>-->
-            <!--                <button class="next hover-scale-transform">-->
-            <!--                    page <span class="page-number">100</span></button>-->
-            <!--            </div>-->
-        </ul>
+            <ul class="recipes-list">
+                <!--                            <li class="recipe-item data-id = """>-->
+                <!--                                <figure class="recipe-image">-->
+                <!--                                    <img src="src/Images/forkifyLogo.png" alt="recipe image">-->
+                <!--                                </figure>-->
+                <!--                                <div class="recipe-info">-->
+                <!--                                    <h3 class="recipe-title">-->
+                <!--                                        Double Crust Stuffed Pizza hamdy khaled mohammed ahmed hassan-->
+                <!--                                    </h3>-->
+                <!--                                    <p class="recipe-author"> Hamdy Khaled</p>-->
+                <!--                                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                            <li class="recipe-item">-->
+                <!--                                <figure class="recipe-image">-->
+                <!--                                    <img src="src/Images/forkifyLogo.png" alt="recipe image">-->
+                <!--                                </figure>-->
+                <!--                                <div class="recipe-info">-->
+                <!--                                    <h3 class="recipe-title">-->
+                <!--                                        Double Crust Stuffed Pizza-->
+                <!--                                    </h3>-->
+                <!--                                    <p class="recipe-author"> Hamdy Khaled</p>-->
+                <!--                                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+                <!--                            <li class="recipe-item">-->
+                <!--                                <figure class="recipe-image">-->
+                <!--                                    <img src="src/Images/forkifyLogo.png" alt="recipe image">-->
+                <!--                                </figure>-->
+                <!--                                <div class="recipe-info">-->
+                <!--                                    <h3 class="recipe-title">-->
+                <!--                                        Double Crust Stuffed Pizza-->
+                <!--                                    </h3>-->
+                <!--                                    <p class="recipe-author"> Hamdy Khaled</p>-->
+                <!--                                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>-->
+                <!--                                </div>-->
+                <!--                            </li>-->
+            </ul>
+            <div class="recipes-list-controller hidden">
+                <button class="previous hover-scale-transform">page <span class="page-number">1</span>
+                </button>
+                <button class="next hover-scale-transform">
+                    page <span class="page-number">100</span></button>
+            </div>
+        </div>
         <div class="recipe">
             <div class="loading-gif hidden"></div>
             <div class="start-message">
@@ -89,7 +91,12 @@
                     Start by searching for a recipe or an ingredient. Have fun!
                 </p>
             </div>
-
+            <div class="error-message hidden">
+                <i class="fa-solid fa-xmark"></i>
+                <p>
+                    No recipes found. please try again!
+                </p>
+            </div>
             <div class="recipe-details">-->
                 <!--                <figure class="recipe-preview">-->
                 <!--                    <img src="src/Images/15365-leaves-plant-dark-4k.jpg" alt="recipe image">-->

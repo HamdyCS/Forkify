@@ -1,29 +1,32 @@
 import Fraction from 'fraction.js';
+import * as helper from './helper';
+import {addHiddenClassFromElement, removeHiddenClassFromElement} from "./helper";
 
 class RecipeView {
     #recipe;
     #recipeDetails = document.querySelector(".recipes .recipe .recipe-details");
     #recipeLoadingGif = document.querySelector(".recipes .recipe .loading-gif")
     #recipeStartMessage = document.querySelector(".recipes .recipe .start-message");
+    #errorMessage = document.querySelector(".recipes .recipe .error-message");
 
-    #toggleHiddenClass(domElement) {
-        domElement.classList.toggle("hidden")
-    }
-    
     hiddenRecipeStartMessage() {
-        this.#recipeStartMessage.classList.add("hidden");
+        helper.addHiddenClassFromElement(this.#recipeStartMessage);
+        return this;
     }
 
     showRecipeStartMessage() {
-        this.#recipeStartMessage.classList.remove("hidden");
+        helper.removeHiddenClassFromElement(this.#recipeStartMessage);
+        return this;
     }
 
     showRecipeLoadingGif() {
-        this.#recipeLoadingGif.classList.remove("hidden");
+        helper.removeHiddenClassFromElement(this.#recipeLoadingGif);
+        return this;
     }
 
     hiddenRecipeLoadingGif() {
-        this.#recipeLoadingGif.classList.add("hidden");
+        helper.addHiddenClassFromElement(this.#recipeLoadingGif);
+        return this;
     }
 
     renderRecipeDetails(recipe) {
@@ -31,6 +34,7 @@ class RecipeView {
         const recipeDetails = this.#generateRecipeDetails();
         this.#clearRecipeDetails();
         this.#recipeDetails.insertAdjacentHTML("afterbegin", recipeDetails);
+        return this;
     }
 
     #generateRecipeDetails() {
@@ -95,6 +99,32 @@ class RecipeView {
 
     #clearRecipeDetails() {
         this.#recipeDetails.innerHTML = "";
+    }
+
+    handleWindowsLoadEvent(callbackFunc) {
+        window.addEventListener('load', callbackFunc);
+        return this;
+    }
+
+    handleWindowsHashChangeEvent(callbackFunc) {
+        window.addEventListener('hashchange', callbackFunc);
+        return this;
+    }
+
+    showErrorMessage() {
+        helper.removeHiddenClassFromElement(this.#errorMessage);
+    }
+
+    hiddenErrorMessage() {
+        helper.addHiddenClassFromElement(this.#errorMessage);
+    }
+
+    getRecipeIdFromUrl() {
+        return window.location.hash.slice(1);
+    }
+
+    setUrlHashToRecipeId(recipeId) {
+        window.location.hash = recipeId;
     }
 }
 
