@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="src\Css\style.css">
     <link rel="stylesheet" href="src/Css/all.min.css">
 
-    <script defer type="module" src="src/js/controller.js"></script>
+    <script defer type="module" src="src/js/controllers/controller.js"></script>
 </head>
 <body>
 <div class="container">
@@ -37,6 +37,12 @@
     </header>
     <div class="recipes">
         <div class="recipe-list-container">
+            <div class="error-message hidden">
+                <i class="fa-solid fa-xmark"></i>
+                <p>
+                    No recipes found for your query! please try again!
+                </p>
+            </div>
             <div class="loading-gif hidden"></div>
             <ul class="recipes-list">
                 <!--                            <li class="recipe-item data-id = """>-->
@@ -76,7 +82,7 @@
                 <!--                                </div>-->
                 <!--                            </li>-->
             </ul>
-            <div class="recipes-list-controller hidden">
+            <div class="recipes-list-pagination hidden">
                 <button class="previous hover-scale-transform">page <span class="page-number">1</span>
                 </button>
                 <button class="next hover-scale-transform">
@@ -97,61 +103,67 @@
                     No recipes found. please try again!
                 </p>
             </div>
-            <div class="recipe-details">-->
+            <div class="recipe-details">
                 <!--                <figure class="recipe-preview">-->
-                <!--                    <img src="src/Images/15365-leaves-plant-dark-4k.jpg" alt="recipe image">-->
-                <!--                    <h2 class="title">-->
-                <!--                        Double Crust Stuffed play-->
-                <!--                    </h2>-->
+                <!--                    &lt;!&ndash;                                    <img src="src/Images/15365-leaves-plant-dark-4k.jpg" alt="recipe image">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                                    <h2 class="title">&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                                        Double Crust Stuffed play&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                                    </h2>&ndash;&gt;-->
                 <!--                </figure>-->
-                <!--                <div class="recipe-info">-->
-                <!--                    <div class="minutes"><i class="fa-solid fa-clock"></i> <span class="number-of-minutes">120</span>-->
-                <!--                        MINUTES-->
+                <!--                <div class="recipe-description">-->
+                <!--                    <div class="recipe-info">-->
+                <!--                        <div class="minutes"><i class="fa-solid fa-clock"></i> <span-->
+                <!--                                class="number-of-minutes">120</span>-->
+                <!--                            MINUTES-->
+                <!--                        </div>-->
+                <!--                        <div class="servings"><i class="fa-solid fa-users"></i> <span-->
+                <!--                                class="number-of-servings">4</span>-->
+                <!--                            SERVINGS-->
+                <!--                            <i class="fa-solid fa-minus servings-increase hover-scale-transform"></i>-->
+                <!--                            <i class="fa-solid fa-plus servings-decrease hover-scale-transform"></i>-->
+                <!--                        </div>-->
+                <!--                        <i class="fa-solid fa-user generate-by-user-ico hidden"></i>-->
+                <!--                        <button class="bookmark-btn hover-scale-transform">-->
+                <!--                            <i class="fa-regular fa-bookmark"></i>-->
+                <!--                        </button>-->
                 <!--                    </div>-->
-                <!--                    <div class="servings"><i class="fa-solid fa-user"></i> <span class="number-of-servings">4</span>-->
-                <!--                        SERVINGS-->
-                <!--                        <i class="fa-solid fa-minus servings-increase hover-scale-transform"></i>-->
-                <!--                        <i class="fa-solid fa-plus servings-decrease hover-scale-transform"></i>-->
+                <!--                    <div class="ingredients">-->
+                <!--                        <h3>RECIPE INGREDIENTS</h3>-->
+                <!--                        <ul>-->
+                <!--                            &lt;!&ndash;                            <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                    class="description">&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                                                        white sugar&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                                                    </span>&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                            </li>&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                            <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                    class="description">&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                                                        white sugar&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                                                    </span>&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                            </li>&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                            <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                    class="description">&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                                                        white sugar&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                                                    </span>&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                            </li>&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                            <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                    class="description">&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                                                        white sugar&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                                                    </span>&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                            </li>&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                            <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                    class="description">&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                                                        white sugar&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                                                                    </span>&ndash;&gt;-->
+                <!--                            &lt;!&ndash;                            </li>&ndash;&gt;-->
+                <!--                        </ul>-->
                 <!--                    </div>-->
-                <!--                    <button class="bookmark-btn hover-scale-transform">-->
-                <!--                        <i class="fa-regular fa-bookmark"></i>-->
-                <!--                    </button>-->
                 <!--                </div>-->
-                <!--                <div class="ingredients">-->
-                <!--                    <h3>RECIPE INGREDIENTS</h3>-->
-                <!--                    <ul>-->
-                <!--                        <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span-->
-                <!--                                class="description">-->
-                <!--                                        white sugar-->
-                <!--                                    </span>-->
-                <!--                        </li>-->
-                <!--                        <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span-->
-                <!--                                class="description">-->
-                <!--                                        white sugar-->
-                <!--                                    </span>-->
-                <!--                        </li>-->
-                <!--                        <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span-->
-                <!--                                class="description">-->
-                <!--                                        white sugar-->
-                <!--                                    </span>-->
-                <!--                        </li>-->
-                <!--                        <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span-->
-                <!--                                class="description">-->
-                <!--                                        white sugar-->
-                <!--                                    </span>-->
-                <!--                        </li>-->
-                <!--                        <li><span class="quantity">1 1/2</span> <span class="unit">tsps</span> <span-->
-                <!--                                class="description">-->
-                <!--                                        white sugar-->
-                <!--                                    </span>-->
-                <!--                        </li>-->
-                <!--                    </ul>-->
-                <!--                </div>-->
+
                 <!--                <div class="how-to-cook-recipe">-->
                 <!--                    <h3>-->
                 <!--                        How to cook it-->
                 <!--                    </h3>-->
-                <!--                    <p class="recipe-description">-->
+                <!--                    <p class="recipe-publisher">-->
                 <!--                        This recipe was carefully designed and tested by <span class="publisher-by">BBC Good Food</span>.-->
                 <!--                        Please check out-->
                 <!--                        directions at their-->

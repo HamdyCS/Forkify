@@ -54,7 +54,7 @@ body {
 .container {
     width: 80%;
     /*height: 95%;*/
-    min-height: 1500px;
+    min-height: 1571.360px;
     background-color: var(--third-color);
     font-size: var(--small-font-size);
     border-radius: 10px;
@@ -129,6 +129,10 @@ body {
                 outline: none;
                 width: 70%;
             }
+
+            .text-input::placeholder {
+                color: rgba(0, 0, 0, 0.27);
+            }
         }
 
         /*    end search*/
@@ -164,6 +168,14 @@ body {
             margin: 0;
             background-color: var(--third-color);
             height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .error-message {
+                background-color: var(--third-color);
+            }
 
             .loading-gif {
                 background-color: var(--third-color);
@@ -255,7 +267,7 @@ body {
 
             /*start page controller*/
 
-            .recipes-list-controller {
+            .recipes-list-pagination {
                 display: flex;
                 justify-content: space-between;
                 padding: var(--small-padding);
@@ -289,7 +301,6 @@ body {
         /*start recipe*/
 
         .recipe {
-            /*start recipe details*/
             position: relative;
             background-color: var(--secound-color);
             height: 100%;
@@ -317,28 +328,7 @@ body {
 
             /*end start message*/
 
-            /*start error message*/
-
-            .error-message {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: var(--fourth-color);
-                z-index: 10;
-                display: flex;
-                padding: var(--medium-padding);
-                justify-content: center;
-                font-size: 20px;
-
-                p {
-                    width: 300px;
-                    margin-left: 10px;
-                }
-            }
-
-            /*end error message*/
+            /*start recipe details*/
 
             .recipe-details {
 
@@ -374,114 +364,123 @@ body {
 
                 /*end recipe preview*/
 
-                /*start recipe  info*/
+                /*start recipe description*/
 
-                .recipe-info {
-                    background-color: var(--secound-color);
-                    padding: var(--medium-padding);
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-evenly;
-                    font-size: var(--small-font-size);
-                    color: var(--main-text-color);
+                .recipe-description {
+                    /*start recipe  info*/
 
-                    .minutes {
-                        .number-of-minutes {
-                            font-weight: bold;
-                        }
-                    }
+                    .recipe-info {
+                        background-color: var(--secound-color);
+                        padding: var(--medium-padding);
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-evenly;
+                        font-size: var(--small-font-size);
+                        color: var(--main-text-color);
 
-                    .servings {
-                        .number-of-servings {
-                            font-weight: bold;
+                        .minutes {
+                            .number-of-minutes {
+                                font-weight: bold;
+                            }
                         }
 
-                        .servings-increase,
-                        .servings-decrease {
-                            padding: 3px;
+                        .servings {
+                            .number-of-servings {
+                                font-weight: bold;
+                            }
+
+                            .servings-increase,
+                            .servings-decrease {
+                                padding: 3px;
+                                border-radius: 50%;
+                                border: 1px solid var(--main-text-color);
+
+                                /*hover animation*/
+                                transition: transform 0.2s linear;
+                            }
+
+                            .servings-increase:hover,
+                            .servings-decrease:hover {
+                                cursor: pointer;
+                            }
+
+                            .servings-decrease {
+                                margin-left: 15px;
+                            }
+                        }
+
+                        .bookmark-btn {
+                            width: 60px;
+                            height: 60px;
+                            padding: var(--small-padding);
+                            text-align: center;
+
+                            color: white;
+                            background-color: var(--main-color);
+
                             border-radius: 50%;
-                            border: 1px solid var(--main-text-color);
+                            border: none;
 
                             /*hover animation*/
                             transition: transform 0.2s linear;
+
+                            i {
+                                color: white;
+                                margin: 0;
+                                font-size: var(--small-font-size);
+                                font-weight: bold;
+                            }
                         }
 
-                        .servings-increase:hover,
-                        .servings-decrease:hover {
+                        .bookmark-btn:hover {
                             cursor: pointer;
                         }
-
-                        .servings-increase {
-                            margin-left: 15px;
-                        }
                     }
 
-                    .bookmark-btn {
-                        padding: var(--small-padding);
-                        text-align: center;
+                    /*end recipe  info*/
 
-                        color: white;
-                        background-color: var(--main-color);
+                    /*start ingredients*/
 
-                        border-radius: 50%;
-                        border: none;
-
-                        /*hover animation*/
-                        transition: transform 0.2s linear;
-
-                        i {
-                            color: white;
-                            margin: 0;
-                            font-size: var(--small-font-size);
-                            font-weight: bold;
-                        }
-                    }
-
-                    .bookmark-btn:hover {
-                        cursor: pointer;
-                    }
-                }
-
-                /*end recipe  info*/
-
-                /*start ingredients*/
-
-                .ingredients {
-                    color: var(--main-text-color);
-                    padding: var(--medium-padding);
-                    background-color: var(--fourth-color);
+                    .ingredients {
+                        color: var(--main-text-color);
+                        padding: var(--medium-padding);
+                        background-color: var(--fourth-color);
 
 
-                    h3 {
-                        text-align: center;
-                        color: var(--main-color);
-                        margin-bottom: var(--medium-margin);
-                    }
-
-                    ul {
-                        display: flex;
-                        flex-wrap: wrap;
-                        justify-content: space-between;
-
-                        list-style: none;
-
-                        li {
-                            width: 45%;
-
-                            display: flex;
+                        h3 {
+                            text-align: center;
+                            color: var(--main-color);
                             margin-bottom: var(--medium-margin);
                         }
 
+                        ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-between;
+
+                            list-style: none;
+
+                            li {
+                                width: 45%;
+
+                                display: flex;
+                                margin-bottom: var(--medium-margin);
+                            }
+
+                        }
+
+                        ul li::before {
+                            content: '✔';
+                            color: #ff6f61;
+                            margin-right: 15px;
+                        }
                     }
 
-                    ul li::before {
-                        content: '✔';
-                        color: #ff6f61;
-                        margin-right: 15px;
-                    }
+                    /*end ingredients*/
                 }
 
-                /*end ingredients*/
+                /*end recipe description*/
+
 
                 /*start how-to-cook-recipe*/
 
@@ -489,7 +488,6 @@ body {
                     background-color: var(--secound-color);
                     padding: var(--medium-padding);
                     color: var(--main-text-color);
-
                     text-align: center;
 
                     h3 {
@@ -497,7 +495,7 @@ body {
                         text-transform: uppercase;
                     }
 
-                    .recipe-description {
+                    .recipe-publisher {
                         line-height: 1.5;
                         margin-bottom: var(--medium-margin);
 
@@ -566,4 +564,28 @@ i {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+
+.error-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--fourth-color);
+    z-index: 10;
+    display: flex;
+    padding: var(--medium-padding);
+    justify-content: center;
+    font-size: 20px;
+
+    p {
+        width: 300px;
+        margin-left: 10px;
+    }
+}
+
+.active-list-item {
+    background-color: var(--secound-color);
 }

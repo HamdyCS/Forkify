@@ -54,11 +54,20 @@ export const state = {
     recipe: null,
     recipes: null,
     recipesSummaries: null,
+    currentPage: 1,
+
+    resetState() {
+        this.recipe = null;
+        this.recipes = [];
+        this.recipesSummaries = 0;
+        this.currentPage = 0;
+    }
 };
 
 function handelError(e) {
     throw e;
 }
+
 
 function mapFromRecipeJsonToRecipeObject(recipeJson) {
 
@@ -93,10 +102,17 @@ export async function fetchRecipesByNameAsync(name) {
         const recipesJson = await Promise.race([getJsonAsync(`${config.API_URL}?search=${name}&key=${config.API_KEY}`), timeOut(config.TIMEOUT_SECONDS)]);
 
 
-        if (!recipesJson.data.recipes.some(x => x)) throw new Error('not found any recipe!');
-
         state.recipesSummaries = recipesJson.data.recipes.map(x => mapFromRecipeSummaryJsonToRecipeSummaryObject(x));
 
+
+        //fake data
+        // await Promise.resolve();
+        //
+        // state.recipesSummaries = [];
+        // for (let i = 1; i < 65; i++) {
+        //     state.recipesSummaries.push(new RecipeSummary(1, "", "Hamdy khaled mohammed", i.toString()));
+        //
+        // }
     } catch (e) {
         handelError(e);
     }
@@ -115,7 +131,18 @@ export async function fetchRecipeByIdAsync(Id) {
 
 
         state.recipe = mapFromRecipeJsonToRecipeObject(recipeJson.data.recipe);
+
     } catch (e) {
         handelError(e);
     }
+}
+
+export function updateServings(NewNumberOfServings) {
+
+    state.recipe.ingredients.forEach(ingredient => {
+        ingredient.quantity = ingredient.quantity / state.recipe.servings * NewNumberOfServings;
+    });
+
+    state.recipe.servings = NewNumberOfServings;
+
 }

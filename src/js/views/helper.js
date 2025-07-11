@@ -4,7 +4,7 @@ export function removeHiddenClassFromElement(element) {
     }
 }
 
-export function addHiddenClassFromElement(element) {
+export function addHiddenClassToElement(element) {
 
     if (!element.classList.contains('hidden')) {
         element.classList.add('hidden');
