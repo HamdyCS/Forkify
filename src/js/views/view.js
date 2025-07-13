@@ -1,12 +1,15 @@
+import * as helper from './helper.js';
+
 export default class View {
 
     _parentElement;
     _data;
 
     render(data) {
-        if (!data || !!data.length >= 1)
-            return;
+        // if (!data || !data.length >= 1)
+        //     return;
 
+        this._data = data;
         this.#clear();
 
         const markup = this._generateMarkup();
@@ -74,5 +77,17 @@ export default class View {
                 }
             });
         });
+    }
+
+    toggleShow() {
+        helper.toggleHiddenClassFromElement(this._parentElement);
+    }
+
+    hidden() {
+        helper.addHiddenClassToElement(this._parentElement);
+    }
+
+    show() {
+        helper.removeHiddenClassFromElement(this._parentElement);
     }
 }

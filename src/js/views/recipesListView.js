@@ -71,7 +71,6 @@ class RecipesListView {
     }
 
     update() {
-        // this.renderRecipeDetails(NewRecipe);
 
         const newMarkup = this.#generateRecipesList();
         if (!newMarkup) return;

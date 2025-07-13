@@ -14,3 +14,4 @@ export function addHiddenClassToElement(element) {
 export function toggleHiddenClassFromElement(element) {
     element.classList.toggle('hidden');
 }
+

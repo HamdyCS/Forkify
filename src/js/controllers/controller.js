@@ -5,10 +5,11 @@ import recipeView from "../views/recipeView.js"
 import recipesListView from "../views/recipesListView"
 import searchView from "../views/searchView.js"
 import paginationView from "../views/paginationView.js"
+import bookmarksView from "../views/bookmarksView.js"
+import documentView from "../views/documentView.js"
+import addRecipeView from "../views/addRecipeView.js"
 import * as helper from "./helper.js"
 import config from "../config.js"
-import {state} from "../models/recipeModel.js";
-// import recipeDescriptionView from "../views/recipeDescriptionView.js"
 
 
 let numberOfPages = 0;
@@ -47,8 +48,6 @@ function controlPagination(lengthOfRecipesSummaries) {
 }
 
 function updatePagination() {
-    // console.log("number of pages ", numberOfPages);
-    // console.log("current of pages ", recipeModel.state.currentPage);
 
     if (recipeModel.state.currentPage === 1) {
         paginationView.updateNextBtnShowVisibility(true);
@@ -95,6 +94,8 @@ async function loadRecipeDetailsByRecipeIdAsync(recipeId) {
 }
 
 async function loadRecipeDetailsFromHashAsync() {
+    //get bookmarks from local storage
+    recipeModel.state.bookMarks = recipeModel.getBookMarksFromLocalStorage();
 
     const recipeId = recipeView.getRecipeIdFromUrl()
     if (!recipeId) return;
@@ -173,6 +174,63 @@ function onServingsDecreaseBtnClick() {
     recipeView.update(recipeModel.state.recipe);
 }
 
+function onBookmarkBtnClick() {
+    // const recipeId = recipeView.getRecipeIdFromUrl();
+    // if (!recipeId) return;
+
+
+    recipeModel.switchBookMarkState(recipeModel.state.recipe);
+    recipeView.update(recipeModel.state.recipe);
+
+    //update bookmarks in local storage
+    recipeModel.addBookMarksToLocalStorage(recipeModel.state.bookMarks);
+}
+
+function onBookmarksBtnCLick() {
+    bookmarksView.toggleShowBookmarks();
+    bookmarksView.render(recipeModel.state.bookMarks);
+}
+
+function onBookmarksRecipeListItemClick(e) {
+    const recipeId = bookmarksView.getRecipeIdFromRecipeListItem(e.target);
+
+    if (!recipeId) return;
+
+    recipeView.setUrlHashToRecipeId(recipeId);
+
+    loadRecipeDetailsByRecipeIdAsync(recipeId);
+
+    bookmarksView.toggleShowBookmarks();
+}
+
+function onDocumentEscapeClick() {
+    bookmarksView.hiddenBookmarks();
+    addRecipeView.hidden();
+    documentView.hiddenOverlay();
+}
+
+function onAddRecipeBtnClick() {
+
+    documentView.showOverlay();
+    addRecipeView.show();
+}
+
+function onCloseAddRecipeModalClick() {
+    addRecipeView.hidden();
+    documentView.hiddenOverlay();
+}
+
+function onUploadBtnClick() {
+    const recipeDataFromForm = addRecipeView.getRecipeDataFromForm();
+    addRecipeView.hidden();
+    documentView.hiddenOverlay();
+
+    console.log(recipeModel.mapFromRecipeDataFromFormToRecipe(recipeDataFromForm));
+}
+
+function onOverlayClick() {
+    onCloseAddRecipeModalClick();
+}
 
 // to handel events
 function initial() {
@@ -193,6 +251,31 @@ function initial() {
     //servings btns
     recipeView.addClickEventToIncreaseServingsBtn(onServingsIncreaseBtnClick);
     recipeView.addClickEventToDecreaseServingsBtn(onServingsDecreaseBtnClick);
+
+    //bookmark Btn in recipe details
+    recipeView.addClickEventToBookMarkBtn(onBookmarkBtnClick);
+
+    //bookmarks btn in header
+    bookmarksView.addClickEventToBookmarksBtn(onBookmarksBtnCLick);
+
+    //add recipe btn
+    addRecipeView.addClickEventToAddRecipeBtn(onAddRecipeBtnClick);
+
+    //bookmarks recipe list item
+    bookmarksView.addClickEventToRecipeListItem(onBookmarksRecipeListItemClick);
+
+
+    //document
+    documentView.addEscapeClickEventToDocument(onDocumentEscapeClick);
+
+    //close recipe modal
+    addRecipeView.addClickEventToCloseBtn(onCloseAddRecipeModalClick);
+
+    //upload recipe btn
+    addRecipeView.addClickEventToUploadBtn(onUploadBtnClick);
+
+    //overlay
+    documentView.addClickEventToOverlay(onOverlayClick);
 }
 
 initial();

@@ -5,9 +5,9 @@ import {addHiddenClassToElement, removeHiddenClassFromElement} from "./helper";
 class RecipeView {
     #recipe;
     #recipeDetails = document.querySelector(".recipes .recipe .recipe-details");
-    #recipeLoadingGif = document.querySelector(".recipes .recipe .loading-gif")
-    #recipeStartMessage = document.querySelector(".recipes .recipe .start-message");
-    #errorMessage = document.querySelector(".recipes .recipe .error-message");
+    #recipeLoadingGif = document.querySelector(".recipes .recipe > .loading-gif")
+    #recipeStartMessage = document.querySelector(".recipes .recipe > .start-message");
+    #errorMessage = document.querySelector(".recipes .recipe > .error-message");
 
     hiddenRecipeStartMessage() {
         helper.addHiddenClassToElement(this.#recipeStartMessage);
@@ -53,6 +53,8 @@ class RecipeView {
         }, "");
 
 
+        const activeBookmarkClass = this.#recipe.isBookMarked ? "active-bookmark-btn" : "";
+
         return ` <figure class="recipe-preview">
                 <img src="${this.#recipe.imageUrl}" alt="${this.#recipe.title}">
                 <h2 class="title">
@@ -70,8 +72,8 @@ class RecipeView {
                     <i class="fa-solid fa-plus servings-increase hover-scale-transform"></i>
                 </div>
 <!--                <i class="fa-solid fa-user generate-by-user-ico "></i>-->
-                <button class="bookmark-btn hover-scale-transform">
-                    <i class="fa-regular fa-bookmark"></i>
+                <button class="bookmark-btn hover-scale-transform ${activeBookmarkClass}">
+                    <i class="fa-regular fa-bookmark "></i>
                 </button>
             </div>
             <div class="ingredients">
@@ -153,8 +155,22 @@ class RecipeView {
         })
     }
 
+    addClickEventToBookMarkBtn(callBackFunc) {
+        this.#recipeDetails.addEventListener("click", (e) => {
+
+            const bookMarkBtn = e.target.closest(".bookmark-btn");
+
+            if (!bookMarkBtn)
+                return;
+
+            callBackFunc();
+        })
+    }
+
     update(NewRecipe) {
         // this.renderRecipeDetails(NewRecipe);
+
+        this.#recipe = NewRecipe;
 
         const newMarkup = this.#generateRecipeDetails();
 

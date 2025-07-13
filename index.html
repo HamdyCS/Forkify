@@ -14,6 +14,73 @@
     <script defer type="module" src="src/js/controllers/controller.js"></script>
 </head>
 <body>
+<div class="overlay hidden"></div>
+<div class="add-recipe hidden">
+    <span class="close-btn">&times;</span>
+    <form class="add-recipe-form">
+        <div class="recipe-data">
+            <div class="section-title">RECIPE DATA</div>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" value="TEST23">
+            </div>
+            <div class="form-group">
+                <label for="url">URL</label>
+                <input type="text" id="url" name="url" value="TEST23">
+            </div>
+            <div class="form-group">
+                <label for="image-url">Image URL</label>
+                <input type="text" id="image-url" name="image_url" value="TEST23">
+            </div>
+            <div class="form-group">
+                <label for="publisher">Publisher</label>
+                <input type="text" id="publisher" name="publisher" value="TEST23">
+            </div>
+            <div class="form-group">
+                <label for="prep-time">Prep time</label>
+                <input type="text" id="prep-time" name="prep_time" value="23">
+            </div>
+            <div class="form-group">
+                <label for="servings">Servings</label>
+                <input type="text" id="servings" name="servings" value="23">
+            </div>
+        </div>
+        <div class="ingredients">
+            <div class="section-title">INGREDIENTS</div>
+            <div class="form-group">
+                <label for="ingredient1">Ingredient 1</label>
+                <input type="text" id="ingredient1" name="ingredient1" value="0.5,kg,Rice">
+            </div>
+            <div class="form-group">
+                <label for="ingredient2">Ingredient 2</label>
+                <input type="text" id="ingredient2" name="ingredient2" value="1,,Avocado">
+            </div>
+            <div class="form-group">
+                <label for="ingredient3">Ingredient 3</label>
+                <input type="text" id="ingredient3" name="ingredient3" value=", ,salt">
+            </div>
+            <div class="form-group">
+                <label for="ingredient4">Ingredient 4</label>
+                <input type="text" id="ingredient4" name="ingredient5"
+                       placeholder="Format: 'Quantity,Unit,Description'">
+            </div>
+            <div class="form-group">
+                <label for="ingredient5">Ingredient 5</label>
+                <input type="text" id="ingredient5" name="ingredient5"
+                       placeholder="Format: 'Quantity,Unit,Description'">
+            </div>
+            <div class="form-group">
+                <label for="ingredient6">Ingredient 6</label>
+                <input type="text" id="ingredient6" name="ingredient6"
+                       placeholder="Format: 'Quantity,Unit,Description'">
+            </div>
+        </div>
+        <button class="upload-button hover-scale-transform">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            Upload
+        </button>
+    </form>
+</div>
 <div class="container">
     <header class="header">
         <div class="logo">
@@ -26,13 +93,36 @@
                 Search
             </button>
         </form>
-        <div class="add hover-scale-transform">
+        <div class="add-recipe-btn hover-scale-transform">
             <i class="fa-solid fa-pen-to-square"></i>
             ADD RECIPE
         </div>
-        <div class="bookmarks hover-scale-transform">
+        <div class="bookmarks-btn hover-scale-transform">
             <i class="fa-solid fa-bookmark"></i>
             BOOKMARKS
+        </div>
+        <div class="bookmarks hidden">
+            <!--            <div class="error-message hidden">-->
+            <!--                <i class="fa-regular fa-face-smile"></i>-->
+            <!--                <p>-->
+            <!--                    No bookmarks yet. Find a nice-->
+            <!--                    recipe and bookmark it :)-->
+            <!--                </p>-->
+            <!--            </div>-->
+            <!--            <ul class="recipes-list">-->
+            <!--                <li class="recipe-item" data-id="">-->
+            <!--                    <figure class="recipe-image">-->
+            <!--                        <img src="src/Images/forkifyLogo.png" alt="recipe image">-->
+            <!--                    </figure>-->
+            <!--                    <div class="recipe-info">-->
+            <!--                        <h3 class="recipe-title">-->
+            <!--                            Double Crust Stuffed Pizza hamdy khaled mohammed ahmed hassan-->
+            <!--                        </h3>-->
+            <!--                        <p class="recipe-author"> Hamdy Khaled</p>-->
+            <!--                        <i class="fa-solid fa-user generate-by-user-ico hidden"></i>-->
+            <!--                    </div>-->
+            <!--                </li>-->
+            <!--            </ul>-->
         </div>
     </header>
     <div class="recipes">
@@ -45,7 +135,7 @@
             </div>
             <div class="loading-gif hidden"></div>
             <ul class="recipes-list">
-                <!--                            <li class="recipe-item data-id = """>-->
+                <!--                            <li class="recipe-item " data-id = "">-->
                 <!--                                <figure class="recipe-image">-->
                 <!--                                    <img src="src/Images/forkifyLogo.png" alt="recipe image">-->
                 <!--                                </figure>-->
