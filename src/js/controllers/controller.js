@@ -300,8 +300,7 @@ function initial() {
 
     //directions btn
     recipeView.addClickEventToDirectionsBtn(onDirectionsBtnClick);
-
-    console.log("ok")
+    
 }
 
 initial();
