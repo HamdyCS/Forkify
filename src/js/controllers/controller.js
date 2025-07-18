@@ -10,6 +10,7 @@ import documentView from "../views/documentView.js"
 import addRecipeView from "../views/addRecipeView.js"
 import * as helper from "./helper.js"
 import config from "../config.js"
+import {state} from "../models/recipeModel.js";
 
 
 let numberOfPages = 0;
@@ -178,15 +179,15 @@ function onBookmarkBtnClick() {
     // const recipeId = recipeView.getRecipeIdFromUrl();
     // if (!recipeId) return;
 
-
     recipeModel.switchBookMarkState(recipeModel.state.recipe);
     recipeView.update(recipeModel.state.recipe);
 
     //update bookmarks in local storage
-    recipeModel.addBookMarksToLocalStorage(recipeModel.state.bookMarks);
+    recipeModel.addBookMarksToLocalStorage();
 }
 
 function onBookmarksBtnCLick() {
+
     bookmarksView.toggleShowBookmarks();
     bookmarksView.render(recipeModel.state.bookMarks);
 }
@@ -216,20 +217,40 @@ function onAddRecipeBtnClick() {
 }
 
 function onCloseAddRecipeModalClick() {
+    addRecipeView.hiddenMessage();
     addRecipeView.hidden();
     documentView.hiddenOverlay();
 }
 
-function onUploadBtnClick() {
-    const recipeDataFromForm = addRecipeView.getRecipeDataFromForm();
-    addRecipeView.hidden();
-    documentView.hiddenOverlay();
+async function onUploadBtnClick() {
 
-    console.log(recipeModel.mapFromRecipeDataFromFormToRecipe(recipeDataFromForm));
+    try {
+        const recipeDataFromForm = addRecipeView.getRecipeDataFromForm();
+        const recipe = recipeModel.mapFromRecipeDataFromFormToRecipe(recipeDataFromForm);
+
+        addRecipeView.showLoadingGif();
+        await recipeModel.addNewRecipeAsync(recipe);
+
+        recipeView.setUrlHashToRecipeIdWithOutReloadPage(state.recipe.id)
+
+        recipeView.hiddenRecipeStartMessage();
+        recipeView.renderRecipeDetails(recipeModel.state.recipe);
+
+        addRecipeView.hiddenLoadingGif();
+        addRecipeView.showMessage("😍 Uploaded new recipe Successfully!");
+
+    } catch (e) {
+        addRecipeView.hiddenLoadingGif();
+        addRecipeView.showMessage(`❌ ${e.message}`);
+    }
 }
 
 function onOverlayClick() {
     onCloseAddRecipeModalClick();
+}
+
+function onDirectionsBtnClick() {
+    window.open(recipeModel.state.recipe.sourceUrl, "_blank");
 }
 
 // to handel events
@@ -276,6 +297,9 @@ function initial() {
 
     //overlay
     documentView.addClickEventToOverlay(onOverlayClick);
+
+    //directions btn
+    recipeView.addClickEventToDirectionsBtn(onDirectionsBtnClick);
 }
 
 initial();
@@ -283,4 +307,7 @@ initial();
 // controlRecipeDetails();//"664c8f193e7aa067e94e8704"
 
 // controlRecipesSearchResultsAsync();
+
+
+
 

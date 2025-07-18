@@ -22,6 +22,8 @@ class DocumentView {
     addClickEventToOverlay(callbackFunc) {
         this.#overlay.addEventListener("click", callbackFunc);
     }
+
+
 }
 
 export default new DocumentView();

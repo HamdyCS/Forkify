@@ -5,9 +5,10 @@ import {addHiddenClassToElement, removeHiddenClassFromElement} from "./helper";
 class RecipeView {
     #recipe;
     #recipeDetails = document.querySelector(".recipes .recipe .recipe-details");
-    #recipeLoadingGif = document.querySelector(".recipes .recipe > .loading-gif")
+    #recipeLoadingGif = document.querySelector(".recipes .recipe > .loading-gif");
     #recipeStartMessage = document.querySelector(".recipes .recipe > .start-message");
     #errorMessage = document.querySelector(".recipes .recipe > .error-message");
+
 
     hiddenRecipeStartMessage() {
         helper.addHiddenClassToElement(this.#recipeStartMessage);
@@ -34,7 +35,6 @@ class RecipeView {
         const recipeDetails = this.#generateRecipeDetails();
         this.#clearRecipeDetails();
         this.#recipeDetails.insertAdjacentHTML("afterbegin", recipeDetails);
-        return this;
     }
 
     #generateRecipeDetails() {
@@ -71,7 +71,7 @@ class RecipeView {
                     <i class="fa-solid fa-minus servings-decrease hover-scale-transform"></i>
                     <i class="fa-solid fa-plus servings-increase hover-scale-transform"></i>
                 </div>
-<!--                <i class="fa-solid fa-user generate-by-user-ico "></i>-->
+                ${this.#recipe.key ? ` <i class="fa-solid fa-user generate-by-user-ico "></i> ` : ''}
                 <button class="bookmark-btn hover-scale-transform ${activeBookmarkClass}">
                     <i class="fa-regular fa-bookmark "></i>
                 </button>
@@ -131,6 +131,11 @@ class RecipeView {
 
     setUrlHashToRecipeId(recipeId) {
         window.location.hash = recipeId;
+    }
+
+    setUrlHashToRecipeIdWithOutReloadPage(recipeId) {
+        //change url id بدون عمل تحميل للصفحة
+        window.history.pushState(null, "", `#${recipeId}`);
     }
 
     addClickEventToIncreaseServingsBtn(callBackFunc) {
@@ -225,7 +230,16 @@ class RecipeView {
         });
     }
 
+    addClickEventToDirectionsBtn(callbackFunc) {
+        this.#recipeDetails.addEventListener("click", (e) => {
+            const directionsBtn = e.target.closest(".directions-btn");
 
+            if (!directionsBtn)
+                return;
+
+            callbackFunc();
+        })
+    }
 }
 
 export default new RecipeView();

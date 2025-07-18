@@ -96,7 +96,7 @@ body {
     /*start form*/
 
     .add-recipe-form {
-
+        position: relative;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr auto;
@@ -105,6 +105,10 @@ body {
         padding-top: 0;
 
         column-gap: var(--medium-margin);
+
+        .error-message {
+            background-color: var(--third-color);
+        }
 
         .recipe-data,
         .ingredients {
@@ -269,6 +273,8 @@ body {
             right: 0;
             top: 170.359px;
             background-color: var(--third-color);
+            overflow-y: scroll;
+            max-height: 100%;
 
             .error-message {
                 background-color: var(--third-color);
@@ -382,12 +388,15 @@ body {
 
                 .recipe-preview {
                     width: 100%;
+                    height: 400px;
 
                     position: relative;
+                    background-image: linear-gradient(to right, var(--main-color), var(--fourth-color));
 
                     img {
                         width: 100%;
-                        height: 400px;
+                        height: 100%;
+
                     }
 
                     .title {
@@ -416,6 +425,7 @@ body {
                     /*start recipe  info*/
 
                     .recipe-info {
+
                         background-color: var(--secound-color);
                         padding: var(--medium-padding);
                         display: flex;
@@ -618,6 +628,7 @@ body {
         }
 
         .recipe-info {
+            flex-grow: 1;
             display: grid;
             grid-template-columns: repeat(2, auto);
             grid-template-rows: repeat(2, 25px);

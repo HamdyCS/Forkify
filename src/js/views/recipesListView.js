@@ -34,7 +34,7 @@ class RecipesListView {
                                         ${recipeSummary.title}
                                     </h3>
                                     <p class="recipe-author"> ${recipeSummary.publisher}</p>
-                                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>
+                                    ${recipeSummary.key ? ` <i class="fa-solid fa-user generate-by-user-ico "></i>` : ''}
                                 </div>
                             </li>`
         }).join("");

@@ -38,8 +38,8 @@ class BookmarksView extends View {
                                     <h3 class="recipe-title">
                                         ${recipe.title}
                                     </h3>
-                                    <p class="recipe-author"> ${recipe.publisher}</p>
-                                    <i class="fa-solid fa-user generate-by-user-ico hidden"></i>
+                                    <p class="recipe-author"> ${recipe.publisher}</p>                       
+                                    ${recipe.key ? ` <i class="fa-solid fa-user generate-by-user-ico "></i>` : ''}
                                 </div>
                             </li>`
         }).join("") + `</ul>`;

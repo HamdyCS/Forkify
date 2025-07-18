@@ -5,6 +5,14 @@ export default class View {
     _parentElement;
     _data;
 
+    /**
+     * render object to dom
+     * @param {object || object[]} data the data to be render
+     * @return undefined not return any things
+     * @this {object} View instance
+     * @author Hamdy Khaled
+     * @todo Finish implementation
+     */
     render(data) {
         // if (!data || !data.length >= 1)
         //     return;
